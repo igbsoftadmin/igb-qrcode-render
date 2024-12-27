@@ -2,16 +2,18 @@ import React, { useRef, useState, useEffect } from "react";
 import QRCodeStyling from "qr-code-styling";
 import "./App.css"; // Import file CSS
 
+const SIZE_QR = 300;
+
 const QRCodeApp = () => {
   const qrCodeRef = useRef();
-  const [qrData, setQrData] = useState("https://example.com");
+  const [qrData, setQrData] = useState("https://igb.vn");
   const [qrLogo, setQrLogo] = useState("");
   const [qrColor, setQrColor] = useState("#000000");
 
   useEffect(() => {
     const qrCode = new QRCodeStyling({
-      width: 300,
-      height: 300,
+      width: SIZE_QR,
+      height: SIZE_QR,
       data: qrData,
       image: qrLogo,
       dotsOptions: { color: qrColor, type: "rounded" },
@@ -71,8 +73,8 @@ const QRCodeApp = () => {
         className="download-btn"
         onClick={() => {
           const qrCode = new QRCodeStyling({
-            width: 300,
-            height: 300,
+            width: SIZE_QR,
+            height: SIZE_QR,
             data: qrData,
             image: qrLogo,
             dotsOptions: { color: qrColor, type: "rounded" },
